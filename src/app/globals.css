@@ -1,8 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.px-padding {
-  padding-left: max(3vw, calc(50vw - 30rem));
-  padding-right: max(3vw, calc(50vw - 30rem));
-}
