@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utils/lib";
+import Header from "@/components/header/header";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -17,11 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(montserrat.className, "flex flex-col gap-3 px-padding")}
+        className={cn(montserrat.className, "grid grid-cols-3 min-h-screen")}
       >
-        <header className="py-4">
-          <h1 className="text-2xl font-bold text-indigo-800">todo</h1>
-        </header>
+        <Header />
         {children}
       </body>
     </html>
