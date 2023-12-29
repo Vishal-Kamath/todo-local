@@ -7,6 +7,8 @@ import SubTodoList from "./subTodoList";
 import { MdDelete } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import SubTodoNotes from "./subTodoNotes";
+import Link from "next/link";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const SubTodo: FC<{
   belongsTo: string;
@@ -32,24 +34,12 @@ const SubTodo: FC<{
     <section className="max-h-screen p-6">
       <div className="flex h-full w-full flex-col gap-6 rounded-lg bg-neutral-100 p-6">
         <div className="flex items-center gap-3">
-          <UiCheckbox
-            type="checkbox"
-            id={currentTodo.id}
-            checked={currentTodo.completed}
-            width="6"
-            height="6"
-            className="h-6 w-6 cursor-pointer accent-blue-500"
-            onChange={(e) => {
-              setMainTodos(
-                mainTodos.map((t) => {
-                  if (t.id === currentTodo.id) {
-                    return { ...t, completed: e.target.checked };
-                  }
-                  return t;
-                }),
-              );
-            }}
-          />
+          <Link
+            href="/home"
+            className="text-neutral-400 hover:text-neutral-600"
+          >
+            <FaArrowLeftLong />
+          </Link>
 
           <input
             type="text"
