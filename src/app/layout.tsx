@@ -18,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(montserrat.className, "grid grid-cols-3 min-h-screen")}
+        className={cn(
+          montserrat.className,
+          "grid min-h-screen grid-cols-[20rem,1fr]",
+        )}
       >
         <Header />
         {children}
