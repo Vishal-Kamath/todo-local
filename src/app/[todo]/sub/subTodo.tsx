@@ -1,0 +1,93 @@
+"use client";
+
+import UiCheckbox from "@/components/ui/checkbox";
+import { Todo, useTodos } from "@/hooks/useTodo";
+import { FC } from "react";
+import SubTodoList from "./subTodoList";
+import { MdDelete } from "react-icons/md";
+import { useRouter } from "next/navigation";
+
+const SubTodo: FC<{
+  belongsTo: string;
+  mainTodos: Todo[];
+  setMainTodos: (updatedTodos: Todo[]) => void;
+}> = ({ mainTodos, setMainTodos, belongsTo }) => {
+  const router = useRouter();
+
+  const [todos, setTodos] = useTodos(belongsTo);
+
+  const currentTodo = mainTodos.find((todo) => todo.id === belongsTo);
+
+  return !currentTodo ? (
+    <section className="p-6">
+      <p>
+        Todo not found.{" "}
+        <a href="/home" className="text-blue-600 underline">
+          Go home
+        </a>
+      </p>
+    </section>
+  ) : (
+    <section className="p-6">
+      <div className="flex h-full w-full flex-col gap-6 rounded-lg bg-neutral-100 p-6">
+        <div className="flex items-center gap-3">
+          <UiCheckbox
+            type="checkbox"
+            id={currentTodo.id}
+            checked={currentTodo.completed}
+            width="6"
+            height="6"
+            className="h-6 w-6 cursor-pointer accent-blue-500"
+            onChange={(e) => {
+              setMainTodos(
+                mainTodos.map((t) => {
+                  if (t.id === currentTodo.id) {
+                    return { ...t, completed: e.target.checked };
+                  }
+                  return t;
+                }),
+              );
+            }}
+          />
+
+          <input
+            type="text"
+            value={currentTodo.title}
+            onChange={(e) => {
+              setMainTodos(
+                mainTodos.map((t) => {
+                  if (t.id === currentTodo.id) {
+                    return { ...t, title: e.target.value };
+                  }
+                  return t;
+                }),
+              );
+            }}
+            className={`${
+              currentTodo.completed ? "line-through" : ""
+            } w-full cursor-pointer bg-transparent text-2xl text-neutral-600 outline-none`}
+          />
+
+          <button
+            className="bg-transparent text-neutral-400 outline-none hover:text-neutral-600"
+            onClick={() => {
+              const DoesUserWantToDelete = confirm(
+                `Do you want to delete "${currentTodo.title}"?`,
+              );
+              if (!DoesUserWantToDelete) return;
+              setMainTodos(mainTodos.filter((t) => t.id !== currentTodo.id));
+              localStorage.removeItem(currentTodo.id);
+              router.replace("/home");
+            }}
+          >
+            <MdDelete className="h-6 w-6" />
+          </button>
+        </div>
+
+        <SubTodoList belongsTo={belongsTo} todos={todos} setTodos={setTodos} />
+      </div>
+    </section>
+  );
+};
+
+export default SubTodo;
