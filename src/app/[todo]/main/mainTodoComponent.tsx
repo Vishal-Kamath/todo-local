@@ -2,6 +2,7 @@ import UiCheckbox from "@/components/ui/checkbox";
 import { Todo } from "@/hooks/useTodo";
 import Link from "next/link";
 import { ChangeEvent, FC } from "react";
+import { RxCross2 } from "react-icons/rx";
 
 const MainTodoComponent: FC<{
   todo: Todo;
@@ -11,7 +12,7 @@ const MainTodoComponent: FC<{
   return (
     <li
       key={todo.id}
-      className="flex max-w-md items-center gap-3 border-b-1 border-neutral-200 text-neutral-400"
+      className="flex max-w-md items-center gap-3 border-b-1 border-neutral-200 text-neutral-400 last:border-none"
     >
       <UiCheckbox
         type="checkbox"
@@ -31,6 +32,13 @@ const MainTodoComponent: FC<{
       >
         {todo.title}
       </Link>
+
+      <button
+        className="bg-transparent text-neutral-300 outline-none hover:text-neutral-500"
+        onClick={deleteTodo}
+      >
+        <RxCross2 className="h-5 w-5" />
+      </button>
     </li>
   );
 };
