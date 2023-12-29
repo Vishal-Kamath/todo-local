@@ -51,28 +51,30 @@ const MainTodoList: FC<{
           />
         ))}
 
-        <li className="flex max-w-md items-center gap-3 py-4 text-slate-400">
-          <button
-            onClick={addNewTodo}
-            disabled={!newTodo}
-            className="outline-none"
-          >
-            <RxPlus className="h-5 w-5 flex-shrink-0 cursor-pointer" />
-          </button>
+        <li className="group flex max-w-md flex-col">
+          <div className="flex items-center gap-3 py-3 text-neutral-400">
+            <button
+              onClick={addNewTodo}
+              disabled={!newTodo}
+              className="outline-none"
+            >
+              <RxPlus className="h-5 w-5 flex-shrink-0 cursor-pointer" />
+            </button>
 
-          <div className="flex w-full flex-col">
-            <input
-              type="text"
-              placeholder="Add a new task"
-              className="peer bg-transparent outline-none"
-              value={newTodo}
-              onChange={(e) => setnewTodo(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.code === "Enter") addNewTodo();
-              }}
-            />
-            <hr className="w-0 border-neutral-400 transition-all duration-300 ease-in-out peer-focus-within:w-full"></hr>
+            <div className="flex w-full flex-col">
+              <input
+                type="text"
+                placeholder="Add a new task"
+                className="bg-transparent outline-none"
+                value={newTodo}
+                onChange={(e) => setnewTodo(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.code === "Enter") addNewTodo();
+                }}
+              />
+            </div>
           </div>
+          <hr className="w-0 border-neutral-300 transition-all duration-300 ease-in-out group-focus-within:w-full"></hr>
         </li>
       </ul>
     </div>

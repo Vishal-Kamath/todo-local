@@ -2,7 +2,6 @@ import UiCheckbox from "@/components/ui/checkbox";
 import { Todo } from "@/hooks/useTodo";
 import Link from "next/link";
 import { ChangeEvent, FC } from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
 
 const MainTodoComponent: FC<{
   todo: Todo;
@@ -12,7 +11,7 @@ const MainTodoComponent: FC<{
   return (
     <li
       key={todo.id}
-      className="flex max-w-md items-center gap-3 border-b-1 border-slate-200 text-slate-400"
+      className="flex max-w-md items-center gap-3 border-b-1 border-neutral-200 text-neutral-400"
     >
       <UiCheckbox
         type="checkbox"
