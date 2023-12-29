@@ -2,10 +2,11 @@
 
 import UiCheckbox from "@/components/ui/checkbox";
 import { Todo, useTodos } from "@/hooks/useTodo";
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 import SubTodoList from "./subTodoList";
 import { MdDelete } from "react-icons/md";
 import { useRouter } from "next/navigation";
+import SubTodoNotes from "./subTodoNotes";
 
 const SubTodo: FC<{
   belongsTo: string;
@@ -28,7 +29,7 @@ const SubTodo: FC<{
       </p>
     </section>
   ) : (
-    <section className="p-6">
+    <section className="max-h-screen p-6">
       <div className="flex h-full w-full flex-col gap-6 rounded-lg bg-neutral-100 p-6">
         <div className="flex items-center gap-3">
           <UiCheckbox
@@ -84,7 +85,26 @@ const SubTodo: FC<{
           </button>
         </div>
 
-        <SubTodoList belongsTo={belongsTo} todos={todos} setTodos={setTodos} />
+        <div className="flex max-h-full flex-col gap-6 overflow-y-auto">
+          <SubTodoList
+            belongsTo={belongsTo}
+            todos={todos}
+            setTodos={setTodos}
+          />
+          <SubTodoNotes
+            notes={currentTodo.notes || ""}
+            setNote={(e: ChangeEvent<HTMLTextAreaElement>) => {
+              setMainTodos(
+                mainTodos.map((t) => {
+                  if (t.id === currentTodo.id) {
+                    return { ...t, notes: e.target.value };
+                  }
+                  return t;
+                }),
+              );
+            }}
+          />
+        </div>
       </div>
     </section>
   );
