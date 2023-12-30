@@ -19,12 +19,12 @@ const Header: FC = () => {
           href="/home"
           className={cn(
             "hover:bg-sky-0 flex items-center gap-3 rounded-md border-1 border-transparent px-3 py-2 hover:border-neutral-400 hover:text-neutral-800",
-            activeLink === "/home"
+            activeLink !== "/sticky"
               ? "bg-neutral-200 text-neutral-800"
               : "text-neutral-500",
           )}
         >
-          {activeLink === "/home" ? <AiFillHome /> : <AiOutlineHome />}
+          {activeLink !== "/sticky" ? <AiFillHome /> : <AiOutlineHome />}
           <span>Home</span>
         </Link>
         <Link
