@@ -52,7 +52,7 @@ export default function StickyNotesPage() {
 
             <textarea
               placeholder="write something..."
-              className="h-full w-full bg-transparent text-sm text-neutral-400 outline-none"
+              className="scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg scrollbar-thumb-amber-100 h-full w-full resize-none bg-transparent text-sm text-neutral-400 outline-none"
               value={note.body}
               onChange={(e) =>
                 setSticky([
@@ -75,7 +75,7 @@ export default function StickyNotesPage() {
 
           <textarea
             placeholder="write something..."
-            className="h-full w-full bg-transparent text-sm text-slate-400 outline-none"
+            className="scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg scrollbar-thumb-slate-200 h-full w-full resize-none bg-transparent text-sm text-slate-400 outline-none"
             value={newStickyBody}
             onChange={(e) => setNewStickyBody(e.target.value)}
           />
