@@ -12,7 +12,7 @@ const MainTodoComponent: FC<{
   return (
     <li
       key={todo.id}
-      className="flex max-w-md items-center gap-3 border-b-1 border-neutral-200 text-neutral-400 last:border-none"
+      className="flex items-center gap-3 border-b-1 border-neutral-200 text-neutral-400 last:border-none md:max-w-md"
     >
       <UiCheckbox
         type="checkbox"

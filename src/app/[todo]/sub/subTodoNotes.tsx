@@ -7,7 +7,7 @@ const SubTodoNotes: FC<{
   return (
     <textarea
       placeholder="Add a note..."
-      className="h-full max-h-40 min-h-40 w-full resize-none bg-transparent text-neutral-400 outline-none"
+      className="scrollbar-none h-full min-h-40 w-full bg-transparent text-neutral-400 outline-none"
       value={notes}
       onChange={setNote}
     />

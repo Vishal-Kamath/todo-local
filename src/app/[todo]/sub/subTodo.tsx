@@ -31,8 +31,8 @@ const SubTodo: FC<{
       </p>
     </section>
   ) : (
-    <section className="max-h-screen p-6">
-      <div className="flex h-full w-full flex-col gap-6 rounded-lg bg-neutral-100 p-6">
+    <section className="max-h-screen md:p-6">
+      <div className="flex h-full w-full flex-col gap-6 border-neutral-300 bg-neutral-100 p-6 pr-3 md:rounded-lg md:border-2 md:border-dashed">
         <div className="flex items-center gap-3">
           <Link
             href="/home"
@@ -75,7 +75,7 @@ const SubTodo: FC<{
           </button>
         </div>
 
-        <div className="flex max-h-full flex-col gap-6 overflow-y-auto">
+        <div className="scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg scrollbar-thumb-neutral-300 flex max-h-full flex-col gap-6 overflow-y-auto pr-3">
           <SubTodoList
             belongsTo={belongsTo}
             todos={todos}

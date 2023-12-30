@@ -26,7 +26,7 @@ const MainTodoList: FC<{
 
   return (
     <div className="flex flex-col">
-      <ul className="flex max-h-96 w-full flex-col overflow-y-auto">
+      <ul className="max-sm:scrollbar-none scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg scrollbar-track-neutral-50 scrollbar-thumb-neutral-200 flex w-full flex-col overflow-y-auto md:max-h-96">
         {todos.map((todo) => (
           <MainTodoComponent
             key={todo.id}
@@ -52,7 +52,7 @@ const MainTodoList: FC<{
           />
         ))}
       </ul>
-      <div className="group flex max-w-md flex-col border-t-1 border-neutral-200">
+      <div className="group flex flex-col border-t-1 border-neutral-200 md:max-w-md">
         <div className="flex items-center gap-3 py-3 text-neutral-400">
           <button
             onClick={addNewTodo}
