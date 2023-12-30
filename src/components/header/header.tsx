@@ -11,10 +11,10 @@ const Header: FC = () => {
   const activeLink = usePathname();
 
   return (
-    <header className="flex h-full flex-col gap-6 bg-neutral-50 p-6">
+    <header className="flex h-full gap-6 bg-neutral-50 p-6 md:flex-col">
       <h1 className="text-2xl font-semibold text-neutral-700">todo</h1>
 
-      <nav className="flex flex-col gap-2">
+      <nav className="flex gap-2 max-md:ml-auto md:flex-col">
         <Link
           href="/home"
           className={cn(
@@ -25,7 +25,7 @@ const Header: FC = () => {
           )}
         >
           {activeLink !== "/sticky" ? <AiFillHome /> : <AiOutlineHome />}
-          <span>Home</span>
+          <span className="max-md:hidden">Home</span>
         </Link>
         <Link
           href="/sticky"
@@ -37,7 +37,7 @@ const Header: FC = () => {
           )}
         >
           {activeLink === "/sticky" ? <FaNoteSticky /> : <FaRegNoteSticky />}
-          <span>Sticky Notes</span>
+          <span className="max-md:hidden">Sticky Notes</span>
         </Link>
       </nav>
     </header>
