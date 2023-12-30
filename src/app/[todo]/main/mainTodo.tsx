@@ -13,7 +13,7 @@ const MainTodo: FC<Props> = ({ todos, setTodos, className, ...props }) => {
   return (
     <section
       className={cn(
-        "flex h-full w-full flex-col justify-start gap-6 p-6",
+        "flex h-full w-full max-w-lg flex-col justify-start gap-6 p-6",
         className,
       )}
       {...props}
