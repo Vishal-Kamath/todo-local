@@ -11,7 +11,7 @@ const Header: FC = () => {
   const activeLink = usePathname();
 
   return (
-    <header className="flex h-full gap-6 bg-neutral-50 p-6 md:flex-col">
+    <header className="flex h-fit gap-6 border-neutral-300 bg-neutral-50 p-6 max-md:border-b-2 md:h-full md:flex-col md:border-r-1">
       <h1 className="text-2xl font-semibold text-neutral-700">todo</h1>
 
       <nav className="flex gap-2 max-md:ml-auto md:flex-col">
