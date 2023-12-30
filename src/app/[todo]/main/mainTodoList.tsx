@@ -26,7 +26,7 @@ const MainTodoList: FC<{
 
   return (
     <div className="flex flex-col">
-      <ul className="flex max-h-96 w-full flex-col overflow-y-auto">
+      <ul className="flex w-full flex-col overflow-y-auto md:max-h-96">
         {todos.map((todo) => (
           <MainTodoComponent
             key={todo.id}
