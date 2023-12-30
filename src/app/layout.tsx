@@ -8,6 +8,12 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "todo",
+  description:
+    "Welcome to the Todo Website! This is a web application built using Next 13, Tailwind CSS, that allows you to store todo data in localstorage. It is project I created while learning Git flow",
+
+  keywords: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Todo", "PWA"],
+  authors: [{ name: "Vishal Kamath", url: "https://github.com/Vishal-Kamath" }],
+  creator: "Vishal Kamath",
 
   // Favicons
   icons: {
@@ -29,6 +35,15 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
+  },
+
+  // Pwa manifest
+  manifest: "/manifest.webmanifest",
+  themeColor: "#ffffff",
+  appleWebApp: {
+    capable: true,
+    title: "todo",
+    statusBarStyle: "black-translucent",
   },
 };
 
