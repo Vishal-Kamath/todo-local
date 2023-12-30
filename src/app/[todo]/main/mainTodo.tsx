@@ -12,10 +12,15 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const MainTodo: FC<Props> = ({ todos, setTodos, className, ...props }) => {
   return (
     <section
-      className={cn("flex w-full flex-col gap-6 p-6", className)}
+      className={cn(
+        "flex h-full w-full flex-col justify-start gap-6 p-6",
+        className,
+      )}
       {...props}
     >
-      <h1 className="text-4xl font-semibold text-neutral-600">Tasks</h1>
+      <h1 className="text-xl font-semibold text-neutral-500 md:text-2xl lg:text-4xl">
+        Tasks
+      </h1>
 
       <MainTodoList todos={todos} setTodos={setTodos} />
     </section>

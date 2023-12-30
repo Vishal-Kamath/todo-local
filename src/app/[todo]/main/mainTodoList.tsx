@@ -52,7 +52,7 @@ const MainTodoList: FC<{
           />
         ))}
       </ul>
-      <div className="group flex max-w-md flex-col border-t-1 border-neutral-200">
+      <div className="group flex flex-col border-t-1 border-neutral-200 md:max-w-md">
         <div className="flex items-center gap-3 py-3 text-neutral-400">
           <button
             onClick={addNewTodo}

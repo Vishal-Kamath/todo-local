@@ -11,7 +11,7 @@ export default function Home({ params }: { params: { todo: string } }) {
   return (
     <main
       className={cn(
-        "grid w-full grid-cols-1",
+        "grid h-full w-full grid-cols-1",
         params.todo !== "home" && "lg:grid-cols-2",
       )}
     >

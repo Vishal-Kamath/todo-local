@@ -13,7 +13,7 @@ export default function StickyNotesPage() {
 
   return (
     <main className="flex flex-col gap-6 p-6">
-      <h1 className="text-2xl font-semibold text-neutral-600 lg:text-4xl">
+      <h1 className="text-xl font-semibold text-neutral-500 md:text-2xl lg:text-4xl">
         Sticky Wall
       </h1>
 

@@ -31,8 +31,8 @@ const SubTodo: FC<{
       </p>
     </section>
   ) : (
-    <section className="max-h-screen p-6">
-      <div className="flex h-full w-full flex-col gap-6 rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-100 p-6">
+    <section className="max-h-screen md:p-6">
+      <div className="flex h-full w-full flex-col gap-6 border-neutral-300 bg-neutral-100 p-6 md:rounded-lg md:border-2 md:border-dashed">
         <div className="flex items-center gap-3">
           <Link
             href="/home"
